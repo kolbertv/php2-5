@@ -49,12 +49,15 @@ class App
         if (isset($_GET['page']))
         {
             $controllerName = $_GET['page'] . 'Controller';
+//            print_r($controllerName);
             $methodName = isset($_GET['action']) ? $_GET['action'] : 'index';
             $controller = new $controllerName();
             $controller->$methodName();
         }
 
-//        print_r($_GET);
+//        print_r($_GET)."<br>";
+//        print_r($_GET['page'])."<br>";
+//        print_r($_GET['action'])."<br>";
 
     }
 

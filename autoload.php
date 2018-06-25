@@ -8,21 +8,15 @@
 
 require_once 'lib/twig/autoload.php';
 
-spl_autoload_register('gbStandartAutoload');
-
-function gbStandartAutoload($className){
-
-    //Папкм с классами загрузки
+spl_autoload_register( function ($className){
 
     $dirs = [
         'controller',
         'lib',
-        'model/'
+        'model',
     ];
 
     $found = false;
-
-    //Имя файла формируется из имени класс и '.class.php'
 
     foreach ($dirs as $dir) {
         $fileName = __DIR__ . '/' . $dir . '/' . $className . '.class.php';
@@ -41,6 +35,6 @@ function gbStandartAutoload($className){
 
     return true;
 
-}
+});
 
 ?>
